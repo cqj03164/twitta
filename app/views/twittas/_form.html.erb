@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for(@twitta, url:confirm_twittas_path) do |f| %>
+  <% if @twitta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @twitta.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @twitta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :投稿者 %>
+  <%= f.text_field :tweeter, class: 'form-control' %>
+
+  <br>
+  <%= f.label :つぶやき %>
+  <%= f.text_field :tweet, class: 'form-control' %>
+  <br>
+  <%= f.submit 'つぶやく', class: 'btn btn-primary btn-block' %>
+  
+<% end %>
+
+<%= link_to "つぶやき一覧画面にもどる", twittas_path %>

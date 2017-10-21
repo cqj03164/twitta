@@ -1,0 +1,43 @@
+
+
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>つぶやき一覧</h1>
+    
+    
+    
+     <%= link_to "新たにつぶやく", new_twitta_path, class: 'btn btn-default' %>
+    
+     <% @twittas.each do |twitta| %>
+     
+     <table class="table table-bordered">
+　
+     <thead>
+      <tr>
+        <th>投稿者</th>
+        <th>つぶやき</th>
+      </tr>
+    </thead>
+　  <tbody>
+      <tr>
+          <td><%= twitta.tweeter %></td>
+          <td><%= twitta.tweet %></td>
+      </tr>
+
+       <div class="row">
+　  </tbody>
+　  </table>
+　  
+　　
+    
+      <%= link_to "編集", edit_twitta_path(twitta.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", twitta_path(twitta.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    
+    <% end %>
+  </div>
+</div>
+
+
+
+
